@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>HexClockHomepage</title>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+  setInterval(function() {
+    var now = new Date();
+
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var s = now.getSeconds();
+    var d = now.toDateString();
+    
+    // Left pad the values with zeros.
+    var hours   = ('00' + h).slice(-2);
+    var minutes = ('00' + m).slice(-2);
+    var seconds = ('00' + s).slice(-2);
+ 
+    var hexTime = "#" + hours + minutes + seconds; 
+    var formattedHours = (h + 11) % 12  
+    var formattedTime = hours + ":" + minutes + ":" + seconds;
+    console.log(hexTime);
+
+    $('body').css('background-color', hexTime);  
+    $('.time').text(formattedTime);
+    $('.hex').text(hexTime);
+    $('.date').text(d);
+  }, 1000);
+
+});
+</script>
+
+
+<style type="text/css">
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #666;
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.datetime {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  font-family: helvetica, sans-serif;
+  color: #999;
+}
+
+.time {
+  font-size: 2em;
+}
+
+.hex {
+  font-size: .8em;
+}
+
+</style>
+
+
+<body>
+
+<div class="datetime">
+  <div class="time"></div>
+  <div class="hex"></div>
+  <div class="date"></div>
+</div>
+
+</body>
+</html>
