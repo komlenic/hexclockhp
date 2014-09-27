@@ -1,3 +1,3 @@
 Hex Clock Homepage
 
-A simple browser homepage experiment interpreting time as hex color codes.
+A simple browser homepage experiment that interprets time as hex color codes.
